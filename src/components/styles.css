@@ -20,7 +20,6 @@
 }
 
 .options {
-    text-decoration: none;
     color: #2F2F2F;
     padding: 0 30px;
 }
@@ -43,6 +42,8 @@
   }
 
  .options:hover:after { transform: scaleX(1); }
+
+ .options:hover { cursor: pointer; }
 
  #menu {
      display: none;

@@ -14,10 +14,10 @@ function NavBar() {
                     <img src="/menu.png" alt="menu"></img>
                 </div>
                 <div id="menu-options" className={`grow${show ? '' : ' collapse'}`}>
-                    <a className="options" href="tbd">Categorías</a>
-                    <a className="options" href="tbd">Marcas</a>
-                    <a className="options" href="tbd">Ofertas</a>
-                    <a className="options" href="tbd">Nuevos</a>
+                    <p className="options">Polos</p>
+                    <p className="options">Funkos</p>
+                    <p className="options">Hogar</p>
+                    <p className="options">Geek</p>
                 </div>
             </div>
         </div>
