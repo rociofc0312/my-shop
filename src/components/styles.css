@@ -1,0 +1,90 @@
+.navbar {
+    background-color: #B9C3C4;
+    padding: 10px 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#logo {
+    width: 150px;
+    margin-right: 50px;
+}
+
+#shopping-cart {
+    width: 35px;
+}
+
+.options {
+    text-decoration: none;
+    color: #2F2F2F;
+    padding: 0 30px;
+}
+
+.grow {
+    flex-grow: 2;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.options:after {
+    display:block;
+    content: '';
+    border-bottom: solid 3px #2F2F2F;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+
+ .options:hover:after { transform: scaleX(1); }
+
+ #menu {
+     display: none;
+ }
+
+ @media screen and (max-width: 800px) {
+    .navbar {
+        padding: 10px 30px;
+    }
+
+    .container {
+        display: block;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    #logo {
+        width: 100px;
+        margin-right: 50px;
+    }
+
+    .grow {
+      display: block;
+    }
+
+    .collapse {
+        display: none
+    }
+
+    #menu {
+        display: block;
+        float: right;
+    }
+   
+    #menu>img {
+       width: 35px;
+    }
+
+    .options {
+        display: block;
+        text-align: center;
+    }
+  }
