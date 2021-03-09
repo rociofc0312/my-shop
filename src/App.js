@@ -1,12 +1,12 @@
 import './App.css';
-import NavBar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/Navbar/Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <NavBar></NavBar>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <NavBar/>
+    <ItemListContainer greeting="Welcome to the Fun Shop"/>
+  </div>
+)
 
 export default App;

@@ -1,0 +1,29 @@
+.greeting {
+    text-align: center;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    background-color: #F3EBFF;
+}
+
+.image {
+    width: 70%;
+}
+
+.arrow {
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.right {
+    padding-left: 30px;
+}
+
+.left {
+    padding-right: 30px;
+}

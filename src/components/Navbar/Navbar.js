@@ -1,17 +1,20 @@
-import './styles.css'
 import React from 'react';
+import CartWidget from '../CartWidget/CartWidget'
+import logo from '../../assets/logo.png'
+import menu from '../../assets/menu.png'
+import './styles.css'
 
-function NavBar() {
+const NavBar = () => {
     const [show, setShow] = React.useState();
 
     return (
         <div className="navbar">
-            <div className="container">
-                <div className="inline-block">
-                    <img id="logo" src="/logo.png" alt="logo"></img>
+            <div className="navbar-items">
+                <div className="logo-item">
+                    <img id="logo" src={logo} alt="logo"></img>
                 </div>
                 <div id="menu" onClick={() => setShow(!show)}>
-                    <img src="/menu.png" alt="menu"></img>
+                    <img src={menu} alt="menu"></img>
                 </div>
                 <div id="menu-options" className={`grow${show ? '' : ' collapse'}`}>
                     <p className="options">Polos</p>
@@ -19,6 +22,7 @@ function NavBar() {
                     <p className="options">Hogar</p>
                     <p className="options">Geek</p>
                 </div>
+                <CartWidget/>
             </div>
         </div>
     )

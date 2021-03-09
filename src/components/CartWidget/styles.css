@@ -1,0 +1,28 @@
+
+#shopping-cart-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shopping-cart {
+    width: 35px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    #shopping-cart-item {
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        background-color: #f7bb44;
+        padding: 10px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 3px #cac6b4;
+    }
+
+    #shopping-cart {
+        padding-right: 4px;
+        padding-top: 3px;
+    }
+}
