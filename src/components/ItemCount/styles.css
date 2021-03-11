@@ -1,0 +1,8 @@
+.counter {
+    display: flex;
+}
+
+.count {
+    flex-grow: 2;
+    text-align: center;
+}
