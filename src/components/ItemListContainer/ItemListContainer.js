@@ -2,8 +2,8 @@ import ItemCount from '../ItemCount/ItemCount'
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import products from '../../data/products'
-import slider from '../../assets/slider.png'
-import './styles.css'
+import styles from './styles.module.css'
+import Slider from '../Slider/Slider'
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -17,7 +17,7 @@ const ItemListContainer = ({ greeting }) => {
     const getItems = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(products)
+            resolve(products)
             }, 2000);
         })
     }
@@ -31,15 +31,12 @@ const ItemListContainer = ({ greeting }) => {
     }
 
     return (
-        <div className="greeting">
-            <div className="slider">
-                {/* <p className="arrow left">❮</p> */}
-                <img className="image" src={slider} alt="slider"></img>
-                {/* <p className="arrow right">❯</p> */}
-            </div>
+        <div className={styles.greeting}>
+            <Slider />
             <p>{greeting}</p>
             <ItemList items={items} />
             <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
+            <p>hehehe</p>
         </div>
     )
 }
