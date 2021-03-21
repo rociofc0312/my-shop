@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    z-index: 200;
+    z-index: 12;
 }
 
 .dot {
@@ -13,7 +13,7 @@
     background-color: rgb(249 229 177);
     border-radius: 50%;
     display: inline-block;
-    z-index: 70;
+    z-index: 12;
 }
 
 .active-dot, .dot:hover {

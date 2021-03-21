@@ -15,14 +15,14 @@
     right: 0;
     bottom: 0;
     margin: 0 auto;
-    z-index: 20;
+    z-index: 10;
     box-shadow: 0 0px 8px 0 rgba(0,0,0,0.2);
     opacity: 0;
     transition-duration: 1s ease;
 }
 
 .active {
-    z-index: 21;
+    z-index: 11;
     opacity: 1;
     transition-duration: 1s;
     transform: scale(1.00);

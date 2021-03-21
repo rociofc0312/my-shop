@@ -17,7 +17,7 @@ const Slider = () => {
             setCurrentIndex(currentIndex === sliderlength ? 0 : currentIndex + 1)
         }, 4000);
         return () => clearInterval(interval)
-    }, [currentIndex])
+    }, [currentIndex, sliderlength])
 
     const nextSlide = (currentValue) => {
         setCurrentIndex(currentValue)

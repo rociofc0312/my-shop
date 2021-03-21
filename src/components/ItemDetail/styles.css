@@ -1,0 +1,32 @@
+.detail-container {
+    display: flex;
+    margin: 30px;
+    box-sizing: border-box;
+}
+
+.image-detail {
+    flex: 1 1 0px;
+}
+
+.description-detail {
+    padding: 20px;
+    flex: 1 1 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+hr {
+    width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .detail-container {
+        display: block;
+        margin: 10px;
+    }
+
+    .description-detail {
+        padding: 10px;
+    }
+}

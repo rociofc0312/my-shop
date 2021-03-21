@@ -36,7 +36,6 @@ const ItemListContainer = ({ greeting }) => {
             <p>{greeting}</p>
             <ItemList items={items} />
             <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
-            <p>hehehe</p>
         </div>
     )
 }
