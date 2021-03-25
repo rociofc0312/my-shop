@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './Slider.css'
-import SliderContent from './SliderContent/SliderContent'
-import SliderDots from './SliderDots/SliderDots'
+import SliderContent from '../../components/SliderContent/SliderContent'
+import SliderDots from '../../components/SliderDots/SliderDots'
+import './styles.css'
 
-const Slider = () => {
+const SliderContainer = () => {
     const sliderImages = [
         require('../../assets/slider.png'),
         require('../../assets/slider2.png')
@@ -31,4 +31,4 @@ const Slider = () => {
     )
 }
 
-export default Slider
+export default SliderContainer

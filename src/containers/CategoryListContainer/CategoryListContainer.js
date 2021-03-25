@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import CategoryList from '../CategoryList/CategoryList'
+import CategoryList from '../../components/CategoryList/CategoryList'
 import categoriesOfProducts from '../../data/categories'
-import Slider from '../Slider/Slider'
+import SliderContainer from '../SliderContainer/SliderContainer'
 import './styles.css'
 
 const CategoryListContainer = () => {
@@ -19,7 +19,7 @@ const CategoryListContainer = () => {
 
     return (
         <div className="category-container">
-            <Slider/>
+            <SliderContainer/>
             <CategoryList categories={categories}/>
         </div>
     )

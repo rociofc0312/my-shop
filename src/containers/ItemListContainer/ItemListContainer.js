@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ItemList from '../ItemList/ItemList'
+import ItemList from '../../components/ItemList/ItemList'
 import products from '../../data/products'
 import styles from './styles.module.css'
 import Loader from 'react-loader-spinner'
@@ -19,10 +19,19 @@ const ItemListContainer = () => {
 
     const getItems = () => {
         return new Promise((resolve, reject) => {
+            setLoading(true)
             setTimeout(() => {
-                resolve(products.filter((product) => product.categoryId === id))
+                filterItems()
+                resolve(filterItems())
             }, 3000);
         })
+    }
+
+    const filterItems = () => {
+        if (isNaN(id))
+            return products
+        else
+            return products.filter((product) => product.categoryId === id)
     }
 
     return (

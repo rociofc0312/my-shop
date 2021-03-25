@@ -7,7 +7,14 @@ const NavBarDropdown = ({ showOptions }) => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        geCategories().then((result) => setCategories(result))
+        geCategories().then((result) => {
+            let rr = result.reduce(function (r, a) {
+                r[a.group] = r[a.group] || [];
+                r[a.group].push(a);
+                return r;
+            }, Object.create(null))
+            setCategories(rr)
+        })
     }, [])
 
     const geCategories = () => {
@@ -16,24 +23,26 @@ const NavBarDropdown = ({ showOptions }) => {
         })
     }
 
+    const showCategories = () => {
+        let sections = []
+        for (const key in categories) {
+            sections.push(
+                <section key={key} className="dropdown-section">
+                    <h4>{key}</h4>
+                    <div className="dropdown-options">
+                        {categories[key].map((category) => (
+                            <Link key={category.id} to={`/category/${category.id}`}>{category.title}</Link>
+                        ))}
+                    </div>
+                </section>
+            )
+        }
+        return sections
+    }
+
     return (
         <div className={`dropdown-menu${showOptions ? ' active' : ''}`}>
-            <section className="dropdown-section">
-                <h4>ROPA Y ACCESORIOS</h4>
-                <div className="dropdown-options">
-                    {categories.filter((category) => category.group === 'Ropa').map((category) => (
-                        <Link key={category.id} to={`/category/${category.id}`}>{category.title}</Link>
-                    ))}
-                </div>
-            </section>
-            <section className="dropdown-section">
-                <h4>HOGAR Y OFICINA</h4>
-                <div className="dropdown-options">
-                    {categories.filter((category) => category.group === 'Hogar').map((category) => (
-                        <Link key={category.id} to={`/category/${category.id}`}>{category.title}</Link>
-                    ))}
-                </div>
-            </section>
+            {showCategories()}
         </div>
     )
 }

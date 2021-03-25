@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import product from '../../data/product'
-import ItemDetail from '../ItemDetail/ItemDetail'
+import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import Loader from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
 import './styles.css'
@@ -19,6 +19,7 @@ const ItemDetailContainer = () => {
 
     const getItem = () => {
         return new Promise((resolve, reject) => {
+            setLoading(true)
             setTimeout(() => {
                 resolve(product.find((pd) => pd.id == id))
             }, 2000);
