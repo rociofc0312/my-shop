@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     z-index: 12;
+    margin-top: 10px;
 }
 
 .dot {

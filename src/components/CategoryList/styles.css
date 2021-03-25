@@ -1,0 +1,22 @@
+.category-list {
+    margin: 20px 0;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.category-title {
+    text-align: center;
+}
+
+.category-title>small {
+    font-weight: 100;
+}
+
+.category-title>h3 {
+    margin: 0;
+    font-weight: 500;
+}

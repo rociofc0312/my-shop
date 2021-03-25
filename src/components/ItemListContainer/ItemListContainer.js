@@ -1,41 +1,41 @@
-import ItemCount from '../ItemCount/ItemCount'
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import products from '../../data/products'
 import styles from './styles.module.css'
-import Slider from '../Slider/Slider'
+import Loader from 'react-loader-spinner'
+import { useParams } from 'react-router-dom'
 
-const ItemListContainer = ({ greeting }) => {
-
-    const [stock, setStock] = useState(5)
+const ItemListContainer = () => {
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
+    let { id } = useParams()
 
     useEffect(() => {
-        getItems().then((result) => setItems(result))
-    }, [])
+        getItems().then((result) => {
+            setItems(result)
+            setLoading(false)
+        })
+    }, [id])
 
     const getItems = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-            resolve(products)
-            }, 2000);
+                resolve(products.filter((product) => product.categoryId === id))
+            }, 3000);
         })
-    }
-
-    const decreaseStock = (quantitySelected) => {
-        if (quantitySelected <= stock) {
-            setStock(stock - quantitySelected)
-        } else {
-            alert('La cantidad elegida supera el stock disponible')
-        }
     }
 
     return (
         <div className={styles.greeting}>
-            <Slider />
-            <p>{greeting}</p>
-            <ItemList items={items} />
-            <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
+            {
+                !loading ?
+                    <ItemList items={items} /> :
+                    <Loader
+                        type="Bars"
+                        color="#f9c847"
+                        height={50}
+                        width={50}/>
+            }
         </div>
     )
 }

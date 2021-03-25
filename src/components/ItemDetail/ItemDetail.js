@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ItemCount from '../ItemCount/ItemCount'
 import { GlassMagnifier } from "react-image-magnifiers"
 import './styles.css'
 
 const ItemDetail = ({ item }) => {
+    const [stock, setStock] = useState(5)
+
+    const decreaseStock = (quantitySelected) => {
+        if (quantitySelected <= stock) {
+            setStock(stock - quantitySelected)
+        } else {
+            alert('La cantidad elegida supera el stock disponible')
+        }
+    }
+
     return (
         <div className="detail-container">
             <div className="image-detail">
@@ -18,6 +29,7 @@ const ItemDetail = ({ item }) => {
                 <p>Precio: S/ {item.price}</p>
                 <hr />
                 <p>{item.description}</p>
+                <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
             </div>
         </div>
     )

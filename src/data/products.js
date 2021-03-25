@@ -1,6 +1,7 @@
 const products = [
     {
         id: 1,
+        categoryId: '7',
         title: 'Funko Kylo Ren',
         description: 'Es un funko de edición limitada',
         price: 50.00,
@@ -8,6 +9,7 @@ const products = [
     },
     {
         id: 2,
+        categoryId: '7',
         title: 'Funko Harry Potter',
         description: 'Es un funko de edición limitada',
         price: 30.00,
@@ -15,6 +17,7 @@ const products = [
     },
     {
         id: 3,
+        categoryId: '6',
         title: 'Mug The Office',
         description: 'Es un mug de edición limitada',
         price: 30.00,
@@ -22,6 +25,7 @@ const products = [
     },
     {
         id: 4,
+        categoryId: '5',
         title: 'Juego de Mesa Cortex',
         description: 'Es un rompecabeza de edición limitada',
         price: 70.00,
@@ -29,6 +33,7 @@ const products = [
     },
     {
         id: 5,
+        categoryId: '7',
         title: 'Funko Moff Gideon',
         description: 'Es un funko de edición limitada',
         price: 50.00,
@@ -37,6 +42,7 @@ const products = [
     {
         id: 6,
         title: 'Polo SNL',
+        categoryId: '1',
         description: 'Es un polo de edición limitada',
         price: 50.00,
         pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/61OIkg9mw5L._AC_UL1000_.jpg',
@@ -44,6 +50,7 @@ const products = [
     {
         id: 7,
         title: 'Rompecabezas Rugrats',
+        categoryId: '4',
         description: 'Es un rompecabeza de edición limitada',
         price: 50.00,
         pictureUrl: 'https://cdn.unifiedcommerce.com/content/product/large/840391120488.jpg',
