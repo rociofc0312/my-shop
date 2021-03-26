@@ -1,6 +1,6 @@
 const product = [
     {
-        id: '1',
+        id: 1,
         stock: 5,
         title: 'Funko Kylo Ren',
         description: `Producto 100% original.
@@ -9,7 +9,7 @@ const product = [
         picture: "https://gusanitolector.pe/wp-content/uploads/889698147538.jpg"
     },
     {
-        id: '2',
+        id: 2,
         stock: 2,
         title: 'Funko Harry Potter',
         description: `Producto 100% original.
@@ -18,7 +18,7 @@ const product = [
         picture: "https://funcollectibles.com/wp-content/uploads/2020/08/Harry-Potter-Harry-Xmas.png"
     },
     {
-        id: '3',
+        id: 3,
         stock: 7,
         title: 'Mug The Office',
         description: 'Cerámica de alto fuego, apta para microondas y lavavajillas.',
@@ -26,7 +26,7 @@ const product = [
         picture: 'https://cdn.shopify.com/s/files/1/0250/1217/4900/products/theoffice_mug_worldsbest-customimage-copy_mockup_handle-on-left_15oz_1_1200x630.png?v=1572164291',
     },
     {
-        id: '4',
+        id: 4,
         stock: 3,
         title: 'Juego de Mesa Cortex',
         description: 'Cortex pone a juego tu agilidad visual, tu coordinación, tu memoria, capacidad de razonamiento.',

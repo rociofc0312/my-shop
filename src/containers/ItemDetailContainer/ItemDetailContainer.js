@@ -21,7 +21,8 @@ const ItemDetailContainer = () => {
         return new Promise((resolve, reject) => {
             setLoading(true)
             setTimeout(() => {
-                resolve(product.find((pd) => pd.id == id))
+                resolve(product.find((pd) => pd.id.toString() == id))
+                console.log('gg:', typeof(id))
             }, 2000);
         })
     }
