@@ -40,15 +40,15 @@ const product = [
         description: `Producto 100% original.
         Para más consultas o compras por depósito, escríbenos al Whatsapp: +51 1 3243222, vía Facebook o Instagram.`,
         price: 50.00,
-        pictureUrl: 'https://cdn.shopify.com/s/files/1/0051/1072/6702/products/star-wars-mandalorian-moff-gideon-funko-pop-vinyl-figure-popcultcha.1588294834_1800x.png?v=1588815430',
+        picture: 'https://cdn.shopify.com/s/files/1/0051/1072/6702/products/star-wars-mandalorian-moff-gideon-funko-pop-vinyl-figure-popcultcha.1588294834_1800x.png?v=1588815430',
     },
     {
         id: 6,
         title: 'Polo SNL',
-        categoryId: '1',
+        categoryId: '1', 
         description: 'El polo de uno de los programas más populares de comedia.',
         price: 50.00,
-        pictureUrl: 'https://images-na.ssl-images-amazon.com/images/I/61OIkg9mw5L._AC_UL1000_.jpg',
+        picture: 'https://images-na.ssl-images-amazon.com/images/I/61OIkg9mw5L._AC_UL1000_.jpg',
     },
     {
         id: 7,
@@ -56,7 +56,7 @@ const product = [
         categoryId: '4',
         description: 'Es un rompecabezas de 100 piezas que muestra a los personajes principales.',
         price: 50.00,
-        pictureUrl: 'https://cdn.unifiedcommerce.com/content/product/large/840391120488.jpg',
+        picture: 'https://cdn.unifiedcommerce.com/content/product/large/840391120488.jpg',
     }
 ]
 

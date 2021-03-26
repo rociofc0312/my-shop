@@ -3,22 +3,28 @@
 }
 
 .item-count {
+    width: 100%;
     text-align: center;
     display: inline-block;
     background-color: white;
-    padding: 20px;
-    border: 1px solid #7d8edf;
+    /* border: 1px solid #7d8edf; */
     border-radius: 10px;
+}
+
+.item-count>p {
+    text-align: left;
 }
 
 .counter {
     display: flex;
-    justify-content: center;
+}
+
+.counter>p {
+    padding: 0 30px;
 }
 
 .count {
     text-align: center;
-    padding: 0 60px;
     margin: 10px 0;
 }
 

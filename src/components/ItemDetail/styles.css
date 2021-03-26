@@ -8,12 +8,19 @@
     flex: 1 1 0px;
 }
 
+.image-item {
+    width: 70%;
+    margin: auto;
+}
+
 .description-detail {
     padding: 20px;
     flex: 1 1 0px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    color: #555555;
+}
+
+.description-detail>h2 {
+    margin: 0;
 }
 
 hr {

@@ -19,15 +19,16 @@ const ItemDetail = ({ item }) => {
             <div className="image-detail">
                 {
                     item.picture ?
-                        <GlassMagnifier imageSrc={item.picture} imageAlt={item.title} magnifierBorderSize={1} square={true} />
+                        <GlassMagnifier className="image-item" imageSrc={item.picture} imageAlt={item.title} magnifierBorderSize={1} square={true} />
                         : 
                         <p>Loading</p>
                 }
             </div>
             <div className="description-detail">
-                <h3>{item.title}</h3>
+                <h2>{item.title}</h2>
                 <p>Precio: S/ {item.price}</p>
                 <hr />
+                <br />
                 <p>{item.description}</p>
                 <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
             </div>

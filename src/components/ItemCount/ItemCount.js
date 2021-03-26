@@ -17,7 +17,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                     ?
                     <div className="counter">
                         <button className="update-count" onClick={() => setCount(count < stock ? count + 1 : count)}>+</button>
-                        <p className="count">{count}</p>
+                        <p>{count}</p>
                         <button className="update-count" onClick={() => setCount(count > initial ? count - 1 : count)}>−</button>
                     </div>
                     :
