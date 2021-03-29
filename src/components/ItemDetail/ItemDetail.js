@@ -6,12 +6,12 @@ import './styles.css'
 
 const ItemDetail = ({ item }) => {
     const [stock, setStock] = useState(item.stock)
-    const [showItemCount, setShowItemCount] = useState(true)
+    const [showCart, setShowCart] = useState(false)
 
     const decreaseStock = (quantitySelected) => {
         if (quantitySelected <= stock) {
             setStock(stock - quantitySelected)
-            setShowItemCount(false)
+            setShowCart(true)
         } else {
             alert('La cantidad elegida supera el stock disponible')
         }
@@ -36,9 +36,9 @@ const ItemDetail = ({ item }) => {
                             <hr />
                             <br />
                             <p>{item.description}</p>
-                            {showItemCount && <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />}
+                            {stock && <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />}
                             {
-                                !showItemCount &&
+                                showCart &&
                                 <div>
                                     <p>Producto agregado a carrito. Stock restante: {stock}</p>
                                     <Link className="go-cart" to="/cart">Terminar mi compra</Link>
