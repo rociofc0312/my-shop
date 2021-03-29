@@ -43,6 +43,17 @@ hr {
     width: 100%;
 }
 
+.go-cart {
+    padding: 10px;
+    border: 2px solid #f7bb44;
+    text-decoration: none;
+    color: #f7bb44;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    font-size: .8em;
+}
+
 @media screen and (max-width: 500px) {
     .detail-container {
         display: block;

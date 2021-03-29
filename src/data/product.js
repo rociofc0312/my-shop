@@ -35,7 +35,7 @@ const product = [
     },
     {
         id: 5,
-        categoryId: '7',
+        stock: 3,
         title: 'Funko Moff Gideon',
         description: `Producto 100% original.
         Para más consultas o compras por depósito, escríbenos al Whatsapp: +51 1 3243222, vía Facebook o Instagram.`,
@@ -45,7 +45,7 @@ const product = [
     {
         id: 6,
         title: 'Polo SNL',
-        categoryId: '1', 
+        stock: 2,
         description: 'El polo de uno de los programas más populares de comedia.',
         price: 50.00,
         picture: 'https://images-na.ssl-images-amazon.com/images/I/61OIkg9mw5L._AC_UL1000_.jpg',
@@ -53,7 +53,7 @@ const product = [
     {
         id: 7,
         title: 'Rompecabezas Rugrats',
-        categoryId: '4',
+        stock: 5,
         description: 'Es un rompecabezas de 100 piezas que muestra a los personajes principales.',
         price: 50.00,
         picture: 'https://cdn.unifiedcommerce.com/content/product/large/840391120488.jpg',

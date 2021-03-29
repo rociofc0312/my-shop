@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { GlassMagnifier } from "react-image-magnifiers"
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 const ItemDetail = ({ item }) => {
-    const [stock, setStock] = useState(5)
+    const [stock, setStock] = useState(item.stock)
+    const [showItemCount, setShowItemCount] = useState(true)
 
     const decreaseStock = (quantitySelected) => {
         if (quantitySelected <= stock) {
             setStock(stock - quantitySelected)
+            setShowItemCount(false)
         } else {
             alert('La cantidad elegida supera el stock disponible')
         }
@@ -33,9 +36,16 @@ const ItemDetail = ({ item }) => {
                             <hr />
                             <br />
                             <p>{item.description}</p>
-                            <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
+                            {showItemCount && <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />}
+                            {
+                                !showItemCount &&
+                                <div>
+                                    <p>Producto agregado a carrito. Stock restante: {stock}</p>
+                                    <Link className="go-cart" to="/cart">Terminar mi compra</Link>
+                                </div>
+                            }
                         </div>
-                    </div> : 
+                    </div> :
                     <div>No data</div>
             }
         </div>
