@@ -5,10 +5,8 @@ import menu from '../../assets/menu.png'
 import './styles.css'
 import NavBarDropdown from './NavBarDropdown/NavBarDropdown';
 import { Link } from 'react-router-dom';
-import SideNav from '../SideNav/SideNav';
 
 const NavBar = ({ onClickedMenu }) => {
-    const [show, setShow] = React.useState(false)
     const [showOptions, setShowOptions] = React.useState(false)
 
     return (
