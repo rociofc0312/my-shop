@@ -50,7 +50,7 @@
 
 #menu>img {
     width: 35px;
- }
+}
 
 @media screen and (max-width: 800px) {
     .navbar {
@@ -71,11 +71,7 @@
     }
 
     .grow {
-      display: block;
-    }
-
-    .collapse {
-        display: none
+        display: none;
     }
 
     #menu {
@@ -86,5 +82,6 @@
     .options {
         display: block;
         text-align: center;
+        color: #555;
     }
 }

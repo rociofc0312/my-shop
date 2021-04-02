@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import categoriesOfProducts from '../../../data/categories'
 import './styles.css'
 
-const NavBarDropdown = ({ showOptions }) => {
+const NavBarDropdown = ({ showOptions, isSideNav}) => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
@@ -27,11 +27,11 @@ const NavBarDropdown = ({ showOptions }) => {
         let sections = []
         for (const key in categories) {
             sections.push(
-                <section key={key} className="dropdown-section">
-                    <h4>{key}</h4>
-                    <div className="dropdown-options">
+                <section key={ key } className={ `category-menu ${ isSideNav ? " sidenav-category" : " navbar-category" }`}>
+                    <h4>{ key }</h4>
+                    <div className={ `category-options ${ isSideNav ? " sidenav-options": " navbar-options" }` }>
                         {categories[key].map((category) => (
-                            <Link key={category.id} to={`/category/${category.id}`}>{category.title}</Link>
+                            <Link key={ category.id } to={`/category/${ category.id }`}>{ category.title }</Link>
                         ))}
                     </div>
                 </section>
@@ -41,7 +41,7 @@ const NavBarDropdown = ({ showOptions }) => {
     }
 
     return (
-        <div className={`dropdown-menu${showOptions ? ' active' : ''}`}>
+        <div className={ isSideNav ? `sidenav-menu${showOptions ? ' active-side' : ''}` : `navbar-menu${showOptions ? ' active-nav' : ''}` }>
             {showCategories()}
         </div>
     )
