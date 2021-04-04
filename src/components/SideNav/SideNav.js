@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import NavBarDropdown from '../Navbar/NavBarDropdown/NavBarDropdown'
+import NavBarDropdown from '../NavBarDropdown/NavBarDropdown'
 import './styles.css'
 
 const SideNav = ({ show, onClickedBack }) => {

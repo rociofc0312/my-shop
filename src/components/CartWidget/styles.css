@@ -10,6 +10,16 @@
     cursor: pointer;
 }
 
+.cart-quantity {
+    position: absolute;
+    transform: translate(90%, -80%);
+    background-color: #ed3a3d;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    border-radius: 100%;
+    color: white;
+}
+
 @media screen and (max-width: 800px) {
     #shopping-cart-item {
         position: fixed;

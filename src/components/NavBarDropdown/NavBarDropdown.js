@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import categoriesOfProducts from '../../../data/categories'
+import categoriesOfProducts from '../../data/categories'
 import './styles.css'
 
 const NavBarDropdown = ({ showOptions, isSideNav}) => {

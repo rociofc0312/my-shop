@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import CartContext from '../../context/CartContext'
 import { GlassMagnifier } from "react-image-magnifiers"
 import { Link } from 'react-router-dom'
 import './styles.css'
 
 const ItemDetail = ({ item }) => {
-    const [stock, setStock] = useState(item.stock)
+    const { addItem, isInCart, getItemQuantity } = useContext(CartContext)
+    const [stock, setStock] = useState(isInCart(item.id) ? item.stock - getItemQuantity(item.id) : item.stock)
     const [showCart, setShowCart] = useState(false)
 
     const decreaseStock = (quantitySelected) => {
         if (quantitySelected <= stock) {
+            addItem(item, quantitySelected)
             setStock(stock - quantitySelected)
             setShowCart(true)
         } else {

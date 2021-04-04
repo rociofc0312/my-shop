@@ -4,21 +4,24 @@ import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailCont
 import CategoryListContainer from './containers/CategoryListContainer/CategoryListContainer';
 import CartContainer from './containers/CartContainer/CartContainer';
 import NavContainer from './containers/NavContainer/NavContainer';
+import { CartContextProvider } from './context/CartContext';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './normalize.css';
 import './App.css';
 
 const App = () => (
   <div className="App">
-    <BrowserRouter>
-      <NavContainer />
-      <Switch>
-        <Route path="/item/:id" component={ItemDetailContainer} />
-        <Route path="/category/:id" component={ItemListContainer} />
-        <Route exact path="/cart" component={CartContainer} />
-        <Route exact path="/" component={CategoryListContainer} />
-      </Switch>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+        <NavContainer />
+        <Switch>
+          <Route path="/item/:id" component={ItemDetailContainer} />
+          <Route path="/category/:id" component={ItemListContainer} />
+          <Route exact path="/cart" component={CartContainer} />
+          <Route exact path="/" component={CategoryListContainer} />
+        </Switch>
+      </BrowserRouter>
+    </CartContextProvider>
   </div>
 )
 

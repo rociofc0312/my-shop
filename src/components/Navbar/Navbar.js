@@ -3,7 +3,7 @@ import CartWidget from '../CartWidget/CartWidget'
 import logo from '../../assets/logo.png'
 import menu from '../../assets/menu.png'
 import './styles.css'
-import NavBarDropdown from './NavBarDropdown/NavBarDropdown';
+import NavBarDropdown from '../NavBarDropdown/NavBarDropdown';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ onClickedMenu }) => {
