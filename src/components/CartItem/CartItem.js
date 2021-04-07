@@ -3,12 +3,18 @@ import './styles.css'
 
 const CartItem = ({ checkout, onRemove }) => {
     return (
-        //TODO: add styles
-        <div className="cart-item">
-            <p>{ checkout.item.title }</p>
-            <p>{ checkout.quantity }</p>
-            <p onClick={ () => onRemove(checkout.item.id) }>X</p>
-        </div>
+        <tr className="cart-item">
+            <td>
+                <div className="item-cell">
+                    <img src={checkout.item.picture} alt="item-pic"/>
+                    <p>{checkout.item.title}</p>
+                </div>
+            </td>
+            <td><div className="remove-item" onClick={() => onRemove(checkout.item.id)}></div></td>
+            <td>S/ {checkout.item.price.toFixed(2)}</td>
+            <td>{checkout.quantity}</td>
+            <td>S/ {checkout.quantity * checkout.item.price}</td>
+        </tr>
     )
 }
 
