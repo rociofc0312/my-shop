@@ -1,9 +1,5 @@
 import { fireStore } from './firebase'
 
-const formatCategories = ( categories ) => {
-
-}
-
 export const getAllCategories = () => {
     return fireStore
         .collection('categories')

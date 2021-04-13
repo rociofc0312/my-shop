@@ -27,14 +27,14 @@ const ItemDetail = ({ item }) => {
                     <div className="detail-content">
                         <div className="image-detail">
                             {
-                                item.picture ?
-                                    <GlassMagnifier className="image-item" imageSrc={item.picture} imageAlt={item.title} magnifierBorderSize={1} square={true} />
+                                item.url ?
+                                    <GlassMagnifier className="image-item" imageSrc={item.url} imageAlt={item.name} magnifierBorderSize={1} square={true} />
                                     :
                                     <p>Loading</p>
                             }
                         </div>
                         <div className="description-detail">
-                            <h2>{item.title}</h2>
+                            <h2>{item.name}</h2>
                             <p>Precio: S/ {item.price}</p>
                             <hr />
                             <br />

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import product from '../../data/product'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import Loader from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
 import './styles.css'
+import { getProductDetail } from '../../services/products'
 
 const ItemDetailContainer = () => {
     let { id } = useParams()
@@ -11,20 +11,12 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        getItem().then((result) => {
+        setLoading(true)
+        getProductDetail(id).then((result) => {
             setItem(result)
             setLoading(false)
         })
     }, [id])
-
-    const getItem = () => {
-        return new Promise((resolve, reject) => {
-            setLoading(true)
-            setTimeout(() => {
-                resolve(product.find((pd) => pd.id.toString() === id))
-            }, 2000);
-        })
-    }
 
     return (
         <div>

@@ -15,7 +15,6 @@ const BaseContainer = () => {
     useEffect(() => {
         getAllCategories().then(result => {
             setCategories(result)
-            console.log(result)
         }).catch(err => {
             console.log(err)
         })

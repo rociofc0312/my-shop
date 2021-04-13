@@ -49,4 +49,9 @@ const categoriesOfProducts = [
     }
 ]
 
+export const allProducts = {
+    name: 'Todo',
+    url: 'https://www.flexilabels.co.uk/files/labels/promotional-sales-pre-printed-labels-sale-flexi-labels.png'
+}
+
 export default categoriesOfProducts

@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
 import CategoriesContext from '../../context/CategoriesContext'
 import Category from '../Category/Category'
+// import { allProducts } from '../../data/categories'
 import './styles.css'
 
 const CategoryList = () => {
     const { categories } = useContext(CategoriesContext)
 
     const getCategoriesList = () => {
-        return categories ? categories.map(category => category.subcategories).flat() : categories
+        let flattenCategories = categories.map(category => category.subcategories).flat()
+        return flattenCategories
     }
     return (
         <div>

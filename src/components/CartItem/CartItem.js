@@ -6,8 +6,8 @@ const CartItem = ({ checkout, onRemove }) => {
         <tr className="cart-item">
             <td>
                 <div className="item-cell">
-                    <img src={checkout.item.picture} alt="item-pic"/>
-                    <p>{checkout.item.title}</p>
+                    <img src={checkout.item.url} alt="item-pic"/>
+                    <p>{checkout.item.name}</p>
                 </div>
             </td>
             <td><div className="remove-item" onClick={() => onRemove(checkout.item.id)}></div></td>
