@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CategoriesContext from '../../context/CategoriesContext'
 import Category from '../Category/Category'
 import './styles.css'
 
-const CategoryList = ({ categories }) => {
+const CategoryList = () => {
+    const { categories } = useContext(CategoriesContext)
+
+    const getCategoriesList = () => {
+        return categories ? categories.map(category => category.subcategories).flat() : categories
+    }
     return (
         <div>
             <div className="category-title">
@@ -10,8 +16,8 @@ const CategoryList = ({ categories }) => {
                 <h3>CATEGORÍAS DISPONIBLES</h3>
             </div>
             <div className="category-list">
-                {categories.map((category) => (
-                    <Category key={category.id} category={category} />
+                {getCategoriesList().map((category) => (
+                    <Category key={category.name} category={category} />
                 ))}
             </div>
         </div>

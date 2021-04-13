@@ -5,10 +5,10 @@ import './styles.css'
 const Category = ({ category }) => {
     return (
         <div className="category">
-            <Link to={`/category/${category.id}`}>
+            <Link to={`/category/${category.name}`}>
                 <div className="category-block">
-                    <img src={category.picture} alt="categoría"/>
-                    <span>{category.title}</span>
+                    <img src={category.url} alt="categoría"/>
+                    <span>{category.name}</span>
                 </div>
             </Link>
         </div>

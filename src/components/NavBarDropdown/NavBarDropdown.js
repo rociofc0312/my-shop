@@ -1,47 +1,34 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import categoriesOfProducts from '../../data/categories'
+import CategoriesContext from '../../context/CategoriesContext'
 import './styles.css'
 
-const NavBarDropdown = ({ showOptions, isSideNav}) => {
-    const [categories, setCategories] = useState([])
-
-    useEffect(() => {
-        geCategories().then((result) => {
-            let rr = result.reduce(function (r, a) {
-                r[a.group] = r[a.group] || [];
-                r[a.group].push(a);
-                return r;
-            }, Object.create(null))
-            setCategories(rr)
-        })
-    }, [])
-
-    const geCategories = () => {
-        return new Promise((resolve, reject) => {
-            resolve(categoriesOfProducts)
-        })
-    }
+const NavBarDropdown = ({ showOptions, isSideNav }) => {
+    const { categories } = useContext(CategoriesContext)
 
     const showCategories = () => {
         let sections = []
-        for (const key in categories) {
-            sections.push(
-                <section key={ key } className={ `category-menu ${ isSideNav ? " sidenav-category" : " navbar-category" }`}>
-                    <h4>{ key }</h4>
-                    <div className={ `category-options ${ isSideNav ? " sidenav-options": " navbar-options" }` }>
-                        {categories[key].map((category) => (
-                            <Link key={ category.id } to={`/category/${ category.id }`}>{ category.title }</Link>
-                        ))}
-                    </div>
-                </section>
-            )
-        }
+        categories.forEach(category => {
+            sections.push(CategoriesSection(category))
+        });
         return sections
     }
 
+    const CategoriesSection = (category) => {
+        return (
+            <section key={category.id} className={`category-menu ${isSideNav ? " sidenav-category" : " navbar-category"}`}>
+                <h4>{category.name}</h4>
+                <div className={`category-options ${isSideNav ? " sidenav-options" : " navbar-options"}`}>
+                    {category.subcategories.map((subcategory) => (
+                        <Link key={subcategory.name} to={`/category/${subcategory.name}`}>{subcategory.name}</Link>
+                    ))}
+                </div>
+            </section>
+        )
+    }
+
     return (
-        <div className={ isSideNav ? `sidenav-menu${showOptions ? ' active-side' : ''}` : `navbar-menu${showOptions ? ' active-nav' : ''}` }>
+        <div className={isSideNav ? `sidenav-menu${showOptions ? ' active-side' : ''}` : `navbar-menu${showOptions ? ' active-nav' : ''}`}>
             {showCategories()}
         </div>
     )
