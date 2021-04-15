@@ -1,19 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import CartList from '../../components/CartList/CartList'
 import CartContext from '../../context/CartContext'
 import CartSummary from '../../components/CartSummary/CartSummary'
 import empty from '../../assets/empty.png'
 import './styles.css'
 import { Link } from 'react-router-dom'
+import CheckoutContainer from '../CheckoutContainer/CheckoutContainer'
 
 const CartContainer = () => {
     const { cart } = useContext(CartContext)
+    const [showCheckout, setShowCheckout] = useState(false)
+
+    const showCheckoutModal = () => {
+        setShowCheckout(!showCheckout)
+    }
+
+    const hideCheckoutModal = () => {
+        setShowCheckout(false)
+    }
 
     const CartCheckout = () => {
         return (
             <div className="cart-checkout">
                 <CartList cart={cart} />
-                <CartSummary />
+                <CartSummary onPayCart={ showCheckoutModal }/>
+                { showCheckout && <CheckoutContainer  onClickedBack={ hideCheckoutModal }/> }
             </div>
         )
     }

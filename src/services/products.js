@@ -1,6 +1,6 @@
 import { fireStore } from './firebase'
 
-export const getProducts = ( subcategory ) => {
+export const getProducts = (subcategory) => {
     return fireStore
         .collection('products')
         .where('subcategory', '==', subcategory)
@@ -9,17 +9,29 @@ export const getProducts = ( subcategory ) => {
             return docs.map((doc) => {
                 const data = doc.data()
                 const id = doc.id
-                return {id, ...data}
+                return { id, ...data }
             })
         })
 }
 
-export const getProductDetail = ( id ) => {
+export const getProductDetail = (id) => {
     return fireStore
-    .collection('products')
-    .doc(id)
-    .get()
-    .then((doc) => {
-        return {...doc.data(), id}
-    })
+        .collection('products')
+        .doc(id)
+        .get()
+        .then((doc) => {
+            return { ...doc.data(), id }
+        })
+}
+
+export const updateBatchStocks = ( items ) => {
+    const batch = fireStore.batch();
+    const itemsRef = fireStore.collection("products")
+
+    items.forEach(( item ) => {
+            const itemDocRef = itemsRef.doc(item.id)
+            batch.update(itemDocRef, { stock: itemDocRef.data().stock - item.quantity })
+        }
+    )
+    batch.commit()
 }

@@ -4,7 +4,7 @@ import CartContext from '../../context/CartContext'
 import './styles.css'
 import { Link } from 'react-router-dom'
 
-const CartSummary = () => {
+const CartSummary = ({ onPayCart }) => {
     const { getCartTotal } = useContext(CartContext)
 
     return (
@@ -24,7 +24,7 @@ const CartSummary = () => {
                 </div>
             </div>
             <div className="cart-actions">
-                <button className="pay">Pagar</button>
+                <button onClick={() => onPayCart()} className="pay">Pagar</button>
                 <Link to="/" className="continue">Seguir comprando</Link>
             </div>
         </div>
