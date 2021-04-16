@@ -24,7 +24,6 @@ const CartContainer = () => {
             <div className="cart-checkout">
                 <CartList cart={cart} />
                 <CartSummary onPayCart={ showCheckoutModal }/>
-                { showCheckout && <CheckoutContainer  onClickedBack={ hideCheckoutModal }/> }
             </div>
         )
     }
@@ -46,6 +45,7 @@ const CartContainer = () => {
                     <CartCheckout /> :
                     <EmptyCart />
             }
+            { showCheckout && <CheckoutContainer  onClickedBack={ hideCheckoutModal }/> }
         </div>
     )
 }

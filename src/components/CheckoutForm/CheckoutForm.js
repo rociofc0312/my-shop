@@ -4,7 +4,7 @@ import { createOrder } from '../../services/order';
 import './styles.css'
 
 const CheckoutForm = () => {
-    const { cart, getCartTotal } = useContext(CartContext)
+    const { cart, clear, getCartTotal } = useContext(CartContext)
     const [buyer, setBuyer] = useState({ name: '', telephone: '', email: '' });
     const [orderId, setOrderId] = useState(null)
 
@@ -19,12 +19,12 @@ const CheckoutForm = () => {
         e.preventDefault()
         createOrder(buildOrder()).then((result) => {
             setOrderId(result.id)
-            console.log(result.id)
+            clear()
+            setBuyer({ name: '', phone: '', email: '' });
         })
     }
 
     const buildOrder = () => {
-        console.log(cart)
         let items = cart.map((checkout) => {
             return {
                 id: checkout.item.id,
@@ -53,13 +53,13 @@ const CheckoutForm = () => {
             <h3>Enviar orden</h3>
             <form onSubmit={sendOrder}>
                 <label htmlFor="name">Nombre Completo</label>
-                <input type="text" id="name" name="name" onChange={changeBuyerInfo} placeholder="Nombre completo..." />
+                <input type="text" id="name" name="name" onChange={changeBuyerInfo} placeholder="Nombre completo..." required/>
 
                 <label htmlFor="telephone">Teléfono</label>
-                <input type="text" id="telephone" name="telephone" onChange={changeBuyerInfo} placeholder="Teléfono..." />
+                <input type="text" id="telephone" name="telephone" onChange={changeBuyerInfo} placeholder="Teléfono..." required/>
 
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" onChange={changeBuyerInfo} placeholder="Email..." />
+                <input type="email" id="email" name="email" onChange={changeBuyerInfo} placeholder="Email..." required/>
 
                 <input type="submit" value="Enviar" />
             </form>

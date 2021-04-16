@@ -1,3 +1,4 @@
+import firebase from 'firebase/app'
 import { fireStore } from './firebase'
 
 export const getProducts = (subcategory) => {
@@ -30,7 +31,7 @@ export const updateBatchStocks = ( items ) => {
 
     items.forEach(( item ) => {
             const itemDocRef = itemsRef.doc(item.id)
-            batch.update(itemDocRef, { stock: itemDocRef.data().stock - item.quantity })
+            batch.update(itemDocRef, { stock: firebase.firestore.FieldValue.increment(-item.quantity) })
         }
     )
     batch.commit()
