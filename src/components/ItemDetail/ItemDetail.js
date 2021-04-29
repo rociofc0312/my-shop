@@ -3,11 +3,15 @@ import ItemCount from '../ItemCount/ItemCount'
 import CartContext from '../../context/CartContext'
 import { GlassMagnifier } from "react-image-magnifiers"
 import { Link } from 'react-router-dom'
+import NotFound from '../shared/NotFound/NotFound'
 import './styles.css'
 
 const ItemDetail = ({ item }) => {
+    let notFoundMessage = "¡Lo sentimos! No se encontró el producto"
     const { addItem, isInCart, getItemQuantity } = useContext(CartContext)
-    const [stock, setStock] = useState(isInCart(item.id) ? item.stock - getItemQuantity(item.id) : item.stock)
+    const [stock, setStock] = useState(() => {
+        return item ? (isInCart(item.id) ? item.stock - getItemQuantity(item.id) : item.stock) : 0
+    })
     const [showCart, setShowCart] = useState(false)
 
     const decreaseStock = (quantitySelected) => {
@@ -26,12 +30,7 @@ const ItemDetail = ({ item }) => {
                 item ?
                     <div className="detail-content">
                         <div className="image-detail">
-                            {
-                                item.url ?
-                                    <GlassMagnifier className="image-item" imageSrc={item.url} imageAlt={item.name} magnifierBorderSize={1} square={true} />
-                                    :
-                                    <p>Loading</p>
-                            }
+                            <GlassMagnifier className="image-item" imageSrc={item.url} imageAlt={item.name} magnifierBorderSize={1} square={true} />
                         </div>
                         <div className="description-detail">
                             <h2>{item.name}</h2>
@@ -39,17 +38,18 @@ const ItemDetail = ({ item }) => {
                             <hr />
                             <br />
                             <p>{item.description}</p>
-                            {stock && <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />}
+                            <ItemCount stock={stock} initial={1} onAdd={decreaseStock} />
                             {
                                 showCart &&
                                 <div>
-                                    <p>Producto agregado a carrito. Stock restante: {stock}</p>
+                                    <p>Producto agregado a carrito.</p>
                                     <Link className="go-cart" to="/cart">Terminar mi compra</Link>
                                 </div>
                             }
                         </div>
-                    </div> :
-                    <div>No data</div>
+                    </div>
+                    :
+                    <NotFound message={notFoundMessage} />
             }
         </div>
     )

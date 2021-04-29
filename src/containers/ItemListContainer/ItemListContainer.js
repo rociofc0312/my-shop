@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../../components/ItemList/ItemList'
 import styles from './styles.module.css'
-import Loader from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
 import { getProducts } from '../../services/products'
+import { useIsMountedRef } from '../../hooks/useIsMountedRef'
+import Loading from '../../components/shared/Loading/Loading'
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
+    const { isMountedRef } = useIsMountedRef()
     let { id } = useParams()
 
     useEffect(() => {
-        setLoading(true)
-        getProducts(id).then((result) => {
-            setItems(result)
-            setLoading(false)
-        })
-    }, [id])
+        getProducts(id)
+            .then((result) => {
+                if (isMountedRef.current) setItems(result)
+            })
+            .finally(() => {
+                if (isMountedRef.current) setLoading(false)
+            })
+    }, [id, isMountedRef])
 
     return (
         <div className={styles.greeting}>
-            {
-                !loading ?
-                    <ItemList items={items} /> :
-                    <Loader
-                        type="Bars"
-                        color="#f9c847"
-                        height={50}
-                        width={50}/>
-            }
+            { loading ? <Loading isSectionLoading={true} /> : <ItemList items={items} /> }
         </div>
     )
 }

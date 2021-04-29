@@ -1,34 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
-import Loader from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
-import './styles.css'
 import { getProductDetail } from '../../services/products'
+import { useIsMountedRef } from '../../hooks/useIsMountedRef'
+import Loading from '../../components/shared/Loading/Loading'
+import './styles.css'
 
 const ItemDetailContainer = () => {
     let { id } = useParams()
-    const [item, setItem] = useState({})
+    const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
+    const { isMountedRef } = useIsMountedRef()
 
     useEffect(() => {
-        setLoading(true)
-        getProductDetail(id).then((result) => {
-            setItem(result)
-            setLoading(false)
-        })
-    }, [id])
+        getProductDetail(id)
+            .then((result) => {
+                if (isMountedRef.current) setItem(result)
+            })
+            .finally(() => {
+                if (isMountedRef.current) setLoading(false)
+            })
+    }, [id, isMountedRef])
 
     return (
         <div>
-            { !loading ?
-                <ItemDetail item={item} />
-                :
-                <Loader className="detail"
-                        type="Bars"
-                        color="#f9c847"
-                        height={50}
-                        width={50}/>
-            }
+            { loading ? <Loading isSectionLoading={true} /> : <ItemDetail item={item} />}
         </div>
     )
 }

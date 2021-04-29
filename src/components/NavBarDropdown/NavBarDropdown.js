@@ -19,9 +19,11 @@ const NavBarDropdown = ({ showOptions, isSideNav }) => {
             <section key={category.id} className={`category-menu ${isSideNav ? " sidenav-category" : " navbar-category"}`}>
                 <h4>{category.name}</h4>
                 <div className={`category-options ${isSideNav ? " sidenav-options" : " navbar-options"}`}>
-                    {category.subcategories.map((subcategory) => (
-                        <Link key={subcategory.name} to={`/category/${subcategory.name}`}>{subcategory.name}</Link>
-                    ))}
+                    {
+                        category.subcategories.map((subcategory) => (
+                            <Link key={subcategory.name} to={`/category/${subcategory.name}`}>{subcategory.name}</Link>
+                        ))
+                    }
                 </div>
             </section>
         )

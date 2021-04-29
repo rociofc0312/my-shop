@@ -3,9 +3,7 @@ import './styles.css'
 
 const ItemList = ({ items }) => (
     <div className="item-list">
-        {items.map((item) => (
-            <Item key={item.id} item={ item }/>
-        ))}
+        { items.map((item) => <Item key={item.id} item={item} />) }
     </div>
 )
 

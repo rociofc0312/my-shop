@@ -3,9 +3,9 @@ import CartList from '../../components/CartList/CartList'
 import CartContext from '../../context/CartContext'
 import CartSummary from '../../components/CartSummary/CartSummary'
 import empty from '../../assets/empty.png'
-import './styles.css'
 import { Link } from 'react-router-dom'
 import CheckoutContainer from '../CheckoutContainer/CheckoutContainer'
+import './styles.css'
 
 const CartContainer = () => {
     const { cart } = useContext(CartContext)
@@ -40,11 +40,7 @@ const CartContainer = () => {
 
     return (
         <div className="cart-container">
-            {
-                cart.length ?
-                    <CartCheckout /> :
-                    <EmptyCart />
-            }
+            { cart.length ? <CartCheckout /> : <EmptyCart /> }
             { showCheckout && <CheckoutContainer  onClickedBack={ hideCheckoutModal }/> }
         </div>
     )

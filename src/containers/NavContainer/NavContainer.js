@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Backdrop from '../../components/BackDrop/Backdrop'
+import Backdrop from '../../components/shared/BackDrop/Backdrop'
 import NavBar from '../../components/Navbar/Navbar'
 import SideNav from '../../components/SideNav/SideNav'
 
@@ -16,9 +16,9 @@ const NavContainer = () => {
 
     return (
         <div>
-            <NavBar onClickedMenu={ showSideNavMenu }/>
-            <SideNav show={ showSideNav } onClickedBack={ hideSideNavMenu }/>
-            { showSideNav && <Backdrop onClickedBack={ hideSideNavMenu }/> }
+            <NavBar onClickedMenu={showSideNavMenu} />
+            <SideNav show={showSideNav} onClickedBack={hideSideNavMenu} />
+            { showSideNav && <Backdrop onClickedBack={hideSideNavMenu} />}
         </div>
     )
 }

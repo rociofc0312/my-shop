@@ -1,5 +1,5 @@
 import React from 'react'
-import Backdrop from '../../components/BackDrop/Backdrop'
+import Backdrop from '../../components/shared/BackDrop/Backdrop'
 import CheckoutForm from '../../components/CheckoutForm/CheckoutForm'
 
 const CheckoutContainer = ({ onClickedBack }) => {

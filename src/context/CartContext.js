@@ -9,13 +9,9 @@ export function CartContextProvider ({ children }) {
         if (!isInCart(item.id)) {
             setCart([...cart, { item, quantity }])
         } else {
-            let foundIndex = cart.findIndex(checkout => checkout.item.id === item.id)
-            let updatedCart = cart.map((checkout, index) => {
-                if (foundIndex === index)
-                    return {...checkout, quantity: checkout.quantity + quantity}
-                return cart
-            })
-            setCart(updatedCart)
+            let foundCheckout = cart.find(checkout => checkout.item.id === item.id)
+            let updatedCart = cart.filter((checkout) => checkout.item.id !== item.id )
+            setCart([...updatedCart, {item:foundCheckout.item, quantity: foundCheckout.quantity + quantity}])
         }
     }
 

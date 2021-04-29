@@ -64,9 +64,7 @@ const CheckoutForm = () => {
                 <input type="submit" value="Enviar" />
             </form>
             <div>
-            {
-                orderId && <p>Orden generada: { orderId }</p>
-            }
+            { orderId && <p>Orden generada: { orderId }</p> }
             </div>
         </div>
     )

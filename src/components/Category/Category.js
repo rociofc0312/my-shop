@@ -7,7 +7,7 @@ const Category = ({ category }) => {
         <div className="category">
             <Link to={`/category/${category.name}`}>
                 <div className="category-block">
-                    <img src={category.url} alt="categoría"/>
+                    <img src={category.url} alt="categoría" />
                     <span>{category.name}</span>
                 </div>
             </Link>

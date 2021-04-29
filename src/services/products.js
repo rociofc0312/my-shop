@@ -21,7 +21,7 @@ export const getProductDetail = (id) => {
         .doc(id)
         .get()
         .then((doc) => {
-            return { ...doc.data(), id }
+            return doc.exists ? { ...doc.data(), id } : null
         })
 }
 
