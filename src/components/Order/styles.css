@@ -1,0 +1,14 @@
+.order {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.dashed {
+    border-top: 1px dashed black;
+}
+
+.order-table {
+    text-align: center;
+}

@@ -10,3 +10,17 @@ export const createOrder = ( order ) => {
             return result
         })
 }
+
+export const getOrders = () => {
+    return fireStore
+    .collection('orders')
+    .orderBy('date', 'desc')
+    .get()
+    .then(({ docs }) => {
+        return docs.map((doc) => {
+            const data = doc.data()
+            const id = doc.id
+            return {id, ...data}
+        })
+    })
+}

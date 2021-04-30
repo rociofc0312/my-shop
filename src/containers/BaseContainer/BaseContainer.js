@@ -1,14 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
-import CategoryListContainer from '../CategoryListContainer/CategoryListContainer';
-import CartContainer from '..//CartContainer/CartContainer';
-import NavContainer from '../NavContainer/NavContainer';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import CategoriesContext from '../../context/CategoriesContext';
-import { getAllCategories } from '../../services/categories';
-import Loading from '../../components/shared/Loading/Loading';
-import { useIsMountedRef } from '../../hooks/useIsMountedRef';
+import React, { useContext, useEffect, useState } from 'react'
+import ItemListContainer from '../ItemListContainer/ItemListContainer'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
+import CategoryListContainer from '../CategoryListContainer/CategoryListContainer'
+import CartContainer from '..//CartContainer/CartContainer'
+import NavContainer from '../NavContainer/NavContainer'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import CategoriesContext from '../../context/CategoriesContext'
+import { getAllCategories } from '../../services/categories'
+import Loading from '../../components/shared/Loading/Loading'
+import { useIsMountedRef } from '../../hooks/useIsMountedRef'
+import OrderContainer from '../OrderContainer/OrderContainer'
+import NotFound from '../../components/shared/NotFound/NotFound'
 import '../../App.css';
 
 const BaseContainer = () => {
@@ -30,7 +32,7 @@ const BaseContainer = () => {
 
     }, [setCategories, isMountedRef])
 
-    if(loading) return <Loading isSectionLoading={false}/>
+    if (loading) return <Loading isSectionLoading={false} />
 
     return (
         <div>
@@ -40,7 +42,9 @@ const BaseContainer = () => {
                     <Route path="/item/:id" component={ItemDetailContainer} />
                     <Route path="/category/:id" component={ItemListContainer} />
                     <Route exact path="/cart" component={CartContainer} />
+                    <Route exact path="/orders" component={OrderContainer} />
                     <Route exact path="/" component={CategoryListContainer} />
+                    <Route render={() => <NotFound message="Esta página no fue encontrada" />} />
                 </Switch>
             </BrowserRouter>
         </div>

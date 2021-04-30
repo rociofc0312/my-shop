@@ -18,6 +18,10 @@
     border-radius: 10px;
 }
 
+.empty-cart>img {
+    width: 40%;
+}
+
 .back-main {
     color:#8e96f5;
     text-decoration: none;

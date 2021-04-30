@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import CategoriesContext from '../../context/CategoriesContext'
 import './styles.css'
 
@@ -21,7 +21,7 @@ const NavBarDropdown = ({ showOptions, isSideNav }) => {
                 <div className={`category-options ${isSideNav ? " sidenav-options" : " navbar-options"}`}>
                     {
                         category.subcategories.map((subcategory) => (
-                            <Link key={subcategory.name} to={`/category/${subcategory.name}`}>{subcategory.name}</Link>
+                            <NavLink key={subcategory.name} to={`/category/${subcategory.name}`} activeClassName="active-category" >{subcategory.name}</NavLink>
                         ))
                     }
                 </div>
