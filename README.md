@@ -37,4 +37,4 @@ Fun shop es un e-commerce, creado con [Create React App](https://facebook.github
 
 ## Funcionamiento
 
-
+![Funshop workflow](https://media.giphy.com/media/bbI4XlFUsxt324186T/giphy.gif)
