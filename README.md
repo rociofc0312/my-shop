@@ -30,6 +30,7 @@ Fun shop es un e-commerce, creado con [Create React App](https://facebook.github
 - src: raiz del proyecto
   - assets: imágenes locales del proyecto
   - components: elementos jsx presentacionales
+    - shared: componentes compartidos
   - containers: agrupamiento de componentes
   - context: data accesible desde cualquier nivel
   - hooks: hooks presonalizados
