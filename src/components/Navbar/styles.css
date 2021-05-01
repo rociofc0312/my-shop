@@ -44,6 +44,18 @@
     font-weight: 500;
 }
 
+.order-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+#order-img {
+    width: 35px;
+    cursor: pointer;
+}
+
 #menu {
     display: none;
 }
@@ -52,13 +64,17 @@
     width: 35px;
 }
 
+.menu-actions {
+    display: flex;
+}
+
 @media screen and (max-width: 800px) {
     .navbar {
         padding: 10px 30px;
     }
 
     .navbar-items {
-        display: block;
+        justify-content: space-between;
     }
 
     .logo-item {
@@ -75,8 +91,10 @@
     }
 
     #menu {
-        display: block;
-        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5px;
     }
 
     .options {

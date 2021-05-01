@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 15px;
 }
 
 #shopping-cart {
@@ -21,7 +22,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    #shopping-cart-item {
+    /* #shopping-cart-item {
         position: fixed;
         right: 40px;
         bottom: 40px;
@@ -34,5 +35,5 @@
     #shopping-cart {
         padding-right: 4px;
         padding-top: 3px;
-    }
+    } */
 }

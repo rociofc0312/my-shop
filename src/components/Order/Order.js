@@ -15,9 +15,15 @@ const Order = ({ order }) => {
 
     return (
         <div className="order">
-            <div>
-                <small>Id de orden:</small>
-                <p>{order.id}</p>
+            <div className="order-header">
+                <div>
+                    <small><b>Id de orden:</b></small>
+                    <p>{order.id}</p>
+                </div>
+                <div>
+                    <small><b>Total:</b></small>
+                    <p>{order.total}</p>
+                </div>
             </div>
             <hr className="dashed" />
             <div>
