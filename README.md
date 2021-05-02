@@ -41,7 +41,7 @@ Fun shop es un e-commerce, creado con [Create React App](https://facebook.github
 
 [Funshop Video](https://www.youtube.com/watch?v=MiNsQQKdnXE)
 
-Link de app: [Funshop](https://my-shop-8d332.firebaseapp.com/)
+Link de app desplegada: [Funshop](https://my-shop-8d332.firebaseapp.com/)
 
 ## Autor
 Rocío Fernández
